@@ -102,8 +102,24 @@ python save_model.py --weights ./data/yolov4-tiny.weights --output ./checkpoints
 
 # Run yolov4-tiny tensorflow model
 python detect.py --weights ./checkpoints/yolov4-tiny-416 --size 416 --model yolov4 --images ./data/images/kite.jpg --tiny
+
+# Run yolov4-tiny on video
+python detect_video.py --weights ./checkpoints/yolov4-tiny-416 --size 416 --model yolov4 --video ./data/video/video.mp4 --tiny --output ./detections/results.avi
+
+# Run yolov4-tiny on webcam
+python detect_video.py --weights ./checkpoints/yolov4-tiny-416 --size 416 --model yolov4 --video 0 --tiny --output ./detections/results.avi 
 ```
 <a name="custom"/>
+
+## Custom YOLOv4-Tiny Using TensorFlow
+The following commands will allow you to run your custom yolov4 tiny model. (video and webcam commands work as well)
+```
+# custom yolov4-tiny (to verify)
+python save_model.py --weights ./data/custom.weights --output ./checkpoints/custom-416 --input_size 416 --model yolov4 --tiny
+
+# Run custom yolov4-tiny tensorflow model (to verify)
+python detect.py --weights ./checkpoints/custom-416 --size 416 --model yolov4 --images ./data/images/car.jpg --tiny
+```
 
 ## Custom YOLOv4 Using TensorFlow
 The following commands will allow you to run your custom yolov4 model. (video and webcam commands work as well)

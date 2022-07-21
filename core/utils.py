@@ -247,9 +247,15 @@ def draw_bbox(image, bboxes, info = False, counted_classes = None, show_label=Tr
             bbox_thick = int(0.6 * (image_h + image_w) / 600)
             c1, c2 = (coor[0], coor[1]), (coor[2], coor[3])
             cv2.rectangle(image, c1, c2, bbox_color, bbox_thick)
+            #s# this will calculate the center of the bb and draw a dot to show it
+            centerx=round((coor[0]+coor[2])/2)
+            centery=round((coor[1]+coor[3])/2)
+            cv2.circle(image, (centerx, centery), radius=1, color=(0, 0, 255), thickness=5)
 
             if info:
                 print("Object found: {}, Confidence: {:.2f}, BBox Coords (xmin, ymin, xmax, ymax): {}, {}, {}, {} ".format(class_name, score, coor[0], coor[1], coor[2], coor[3]))
+                #s# print in the terminal the coordinate of the center of the bb
+                print("Center : {} , {}".format(centerx, centery))
 
             if show_label:
                 bbox_mess = '%s: %.2f' % (class_name, score)
