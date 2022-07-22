@@ -107,7 +107,10 @@ python detect.py --weights ./checkpoints/yolov4-tiny-416 --size 416 --model yolo
 python detect_video.py --weights ./checkpoints/yolov4-tiny-416 --size 416 --model yolov4 --video ./data/video/video.mp4 --tiny --output ./detections/results.avi
 
 # Run yolov4-tiny on webcam
-python detect_video.py --weights ./checkpoints/yolov4-tiny-416 --size 416 --model yolov4 --video 0 --tiny --output ./detections/results.avi 
+python detect_video.py --weights ./checkpoints/yolov4-tiny-416 --size 416 --model yolov4 --video 0 --tiny --output ./detections/results.avi
+
+# Run yolov4-tiny on a test video 
+python detect_video.py --weights ./checkpoints/yolov4-tiny-416 --size 416 --model yolov4 --video ./data/video/test.mp4 --tiny --info
 ```
 <a name="custom"/>
 
